@@ -1,6 +1,7 @@
 
 package com.github.mikephil.charting.renderer;
 
+import android.util.Log;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -378,6 +379,7 @@ public class PieChartRenderer extends DataRenderer {
                     strokePaint.setStrokeWidth(4);
                     strokePaint.setColor(dataSet.getColor(j));
                     strokePaint.setShadowLayer(10,0,0,dataSet.getColor(j));
+                    Log.i("POPSTAND TAG", " -----> POPSTAND CODE!");
                     mBitmapCanvas.drawPath(mPathBuffer, strokePaint);
                 }
             }
