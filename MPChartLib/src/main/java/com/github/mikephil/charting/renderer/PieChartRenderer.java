@@ -254,7 +254,7 @@ public class PieChartRenderer extends DataRenderer {
 
                     final boolean accountForSliceSpacing = sliceSpace > 0.f && sliceAngle <= 180.f;
 
-                    mRenderPaint.setColor(dataSet.getColor(j));
+                    mRenderPaint.setAlpha(0);
 
                     final float sliceSpaceAngleOuter = visibleAngleCount == 1 ?
                             0.f :
@@ -372,6 +372,13 @@ public class PieChartRenderer extends DataRenderer {
                     mPathBuffer.close();
 
                     mBitmapCanvas.drawPath(mPathBuffer, mRenderPaint);
+
+                    Paint strokePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+                    strokePaint.setStyle(Style.STROKE);
+                    strokePaint.setStrokeWidth(4);
+                    strokePaint.setColor(dataSet.getColor(j));
+                    strokePaint.setShadowLayer(10,0,0,dataSet.getColor(j));
+                    mBitmapCanvas.drawPath(mPathBuffer, strokePaint);
                 }
             }
 
