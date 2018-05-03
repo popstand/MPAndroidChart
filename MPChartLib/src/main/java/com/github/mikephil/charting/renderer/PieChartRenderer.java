@@ -255,7 +255,7 @@ public class PieChartRenderer extends DataRenderer {
 
                     final boolean accountForSliceSpacing = sliceSpace > 0.f && sliceAngle <= 180.f;
 
-                    mRenderPaint.setAlpha(0);
+                    mRenderPaint.setColor(dataSet.getColor(j));
 
                     final float sliceSpaceAngleOuter = visibleAngleCount == 1 ?
                             0.f :
@@ -381,6 +381,7 @@ public class PieChartRenderer extends DataRenderer {
                     strokePaint.setShadowLayer(12,0,0,dataSet.getColor(j));
 //                    Log.i("POPSTAND TAG", " -----> POPSTAND CODE!");
                     mBitmapCanvas.drawPath(mPathBuffer, strokePaint);
+                    mBitmapCanvas.drawPath(mPathBuffer, mRenderPaint);
                 }
             }
 
@@ -827,7 +828,7 @@ public class PieChartRenderer extends DataRenderer {
 
             final boolean accountForSliceSpacing = sliceSpace > 0.f && sliceAngle <= 180.f;
 
-            mRenderPaint.setAlpha(0);
+            mRenderPaint.setColor(set.getColor(index));
 
             final float sliceSpaceAngleOuter = visibleAngleCount == 1 ?
                     0.f :
@@ -959,6 +960,7 @@ public class PieChartRenderer extends DataRenderer {
             strokePaint.setShadowLayer(12,0,0,set.getColor(index));
 //                    Log.i("POPSTAND TAG", " -----> POPSTAND CODE!");
             mBitmapCanvas.drawPath(mPathBuffer, strokePaint);
+            mBitmapCanvas.drawPath(mPathBuffer, mRenderPaint);
         }
 
         MPPointF.recycleInstance(center);
